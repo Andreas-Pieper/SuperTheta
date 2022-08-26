@@ -114,6 +114,7 @@ fij:=[
 q:=ThetaNull(Str, fij, [K|x[1],t,x[2],0, x[3],0],4,3);
 print q;
 C:=CurveFromThetaNull(q,3);
+print C;
 Time(T);
 ```
 
