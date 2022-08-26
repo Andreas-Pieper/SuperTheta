@@ -41,8 +41,10 @@ Output:
 The theta nullvalues of level N of the quotient E^g/H
 
 
-Example:
+## Example:
+The following example computes the generic fiber of a 1-dimensional family of supersingular plane quartics
 
+```
 AttachSpec("spec");
 Attach("ThetaNull.m");
 p:=3;
@@ -58,14 +60,10 @@ iF:=F*i;
 Str:=ssEllipticCurveEndStr(E,ECMlift,B,[IdentityMap(E), i, F, iF],[B| 1, iB, FB,iFB],[FB, iB]);
 T:=Time();
 k<beta>:=GF(p^12);
-P:=ProjectiveSpace(GF(3^2),2);
-X:=Scheme(P,P.1^4+P.2^4+P.3^4);
-ferm:=Points(X, GF(p^6)) diff Points(X, GF(3^2));
-ferm:=[x: x in ferm | not x[2] in GF(3^2)];
 
 
 K<t>:=RationalFunctionField(k);
-x:=Random(ferm);
+x:=[k.1^448 : k.1^651 : 1];
 
 fij:=[
     [
@@ -117,7 +115,7 @@ q:=ThetaNull(Str, fij, [K|x[1],t,x[2],0, x[3],0],4,3);
 print q;
 C:=CurveFromThetaNull(q,3);
 Time(T);
-
+```
 
 
 The intrinsic CurveFromThetaNull(q,g) computes a curve C such that A=Jac(C) (if exists). So far only only g=2,3 posssible.
