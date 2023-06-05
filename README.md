@@ -63,7 +63,7 @@ k<beta>:=GF(p^12);
 
 
 K<t>:=RationalFunctionField(k);
-x:=[k.1^448 : k.1^651 : 1];
+x:=[k.1^448 , k.1^651 , 1];
 
 fij:=[
     [
